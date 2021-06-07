@@ -1,0 +1,38 @@
+.log{
+	border:2px;
+	border-color:gray;
+	border-style: solid;
+	margin-top: 70px;
+	width: 420px;
+	height: cover;
+	padding:20px;
+
+}
+.hri{
+	border-top: 2px solid;
+}
+.afont{
+	color:blue;
+}
+.reg{
+	margin-top: 90px;
+	margin-left: 50px;
+	border:2px;
+	border-color:gray;
+	border-style: solid;
+	height: cover;
+	width: 420px;
+	padding:20px;
+}
+.fnt{
+	font-family: MS PGothic;
+	color:#872ac1;
+
+}
+
+.spn{
+	 
+	font-family: MS PGothic;
+	color:#b7881f;
+
+}
