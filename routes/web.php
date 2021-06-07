@@ -62,7 +62,7 @@ Route::post('/cardrequest','CardRequestController@cardrequest')->name('cardreque
 
 Route::post('/cardrequestprocess','CardRequestController@cardrequestprocess')->name('cardrequestprocess');
 
-/// Admin pannel 
+ 
 
 Route::post('/card_request_delete','CardRequestController@card_request_delete')->name('card_request_delete');
  
