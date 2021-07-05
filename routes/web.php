@@ -70,6 +70,18 @@ Route:: post('/card_request_accept','CardRequestController@card_request_accept')
 
 /// ---------- ADMIN POST ROUTE ------------
 
+Route:: post('/update_general_info','admincontroller@update_general_info')->name('update_general_info');
+
+Route:: post('/update_formal_info','admincontroller@update_formal_info')->name('update_formal_info');
+
+///update_password_admin
+Route::post('/update_password_admin_','admincontroller@update_password_admin_')->name('update_password_admin_');
+
+Route:: post('/update_address','admincontroller@update_address')->name('update_address');
+ 
+Route:: post('/update_image_admin','admincontroller@update_image_admin')->name('update_image_admin');
+
+ 
 Route:: post('/AddedCustomer','CustomerController@added_customer')->name('AddedCustomer');
 Route:: post('/AddedDriver','DriverController@added_driver')->name('AddedDriver'); 
 
@@ -166,6 +178,7 @@ Route::middleware(['AuthAdmin'])->group(function () {
 
 
 Route::get('/admin_profile','admincontroller@profile')->name('admin_profile') ;
+Route::get('/update_profile','admincontroller@update_profile');
 
 Route::get('/desboard','admincontroller@desboard');
 
@@ -185,6 +198,8 @@ Route::get('/driver_list','admincontroller@driver_list');
 
 
  Route::get('/user_profile','UserController@user_profile')->name('user_profile');
+Route::get('/user_profile_driver','UserController@user_profile_driver')->name('user_profile_driver');
+ 
 
  Route::get('/driver_list','admincontroller@driver_list');
  
@@ -194,7 +209,7 @@ Route::get('/driver_list','admincontroller@driver_list');
  Route::get('/add_driver','admincontroller@add_driver');
  Route::get('/remove_driver','admincontroller@remove_driver');
 
-  
+Route::get('/password_reset','admincontroller@password_rest');
 
 });
 

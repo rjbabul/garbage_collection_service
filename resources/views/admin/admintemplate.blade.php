@@ -157,8 +157,8 @@
     </button>
     <div class="dropdown-menu">
       <a class="dropdown-item" href="\admin_profile">Profile</a>
-      <a class="dropdown-item" href="#">Update Profile</a>
-      <a class="dropdown-item" href="#">Change Password</a>
+      <a class="dropdown-item" href="\update_profile">Update Profile</a>
+      <a class="dropdown-item" href="\password_reset">Change Password</a>
       <hr>
       <a  href="\logout" class="dropdown-item"  > <i class="fa fa-sign-out" style=" color:gray;"></i> LogOut</a>
     </div>

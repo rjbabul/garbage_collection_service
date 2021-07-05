@@ -41,12 +41,144 @@ class admincontroller extends Controller
        
     }
 
+    public function update_general_info(Request $request){
+      $data= admin::where('id', '=',session('loggedUser'))->first();
+       if($request->name){
+        $data->name= $request->name;
+       }
+       if($request->email){
+        $data->email= $request->email;
+       }
+       if($request->cont_no){
+        $data->cont_no= $request->cont_no;
+       }
+
+          $save = $data->save();
+        if($save){
+              return back()->with('success','successfully Upadate');
+        }
+        else{
+            return back()->with('fail','somthing is wrong');
+        }
+    }
+
+     public function update_formal_info(Request $request){
+       $data= admin::where('id', '=',session('loggedUser'))->first();
+       if($request->zone){
+        $data->zone= $request->zone;
+       }
+       if($request->rank){
+        $data->rank= $request->rank;
+       }
+      
+
+          $save = $data->save();
+        if($save){
+              return back()->with('success','successfully Upadate');
+        }
+        else{
+            return back()->with('fail','somthing is wrong');
+        }
+
+    }
+
+    public function update_address(Request $request){
+       $data= admin::where('id', '=',session('loggedUser'))->first();
+
+       if($request->post){
+        $data->post= $request->post;
+       }
+       if($request->Thana){
+        $data->Thana= $request->Thana;
+       }
+        if($request->Dist){
+        $data->Dist= $request->Dist;
+       }
+
+          $save = $data->save();
+        if($save){
+              return back()->with('success','successfully Upadate');
+        }
+        else{
+            return back()->with('fail','somthing is wrong');
+        }
+
+    }
+
+    public function update_image_admin(Request $request){
+       $data= admin::where('id', '=',session('loggedUser'))->first();
+
+
+         $path= "image/customer_profile/";
+         $data->image=  $path.$request->img  ;
+       
+          $save = $data->save();
+        if($save){
+              return back()->with('success','successfully Upadate');
+        }
+        else{
+            return back()->with('fail','somthing is wrong');
+        }
+
+    }
+
+    public function update_password_admin_(Request $request){
+
+
+       $data= admin::where('id', '=',session('loggedUser'))->first();
+    
+       $request->validate([
+         
+        'old' =>'required |min:5|max:12 ',
+        'new' =>'required |min:5|max:12 ',
+        'confirm' =>'required |min:5|max:12 '
+      ]);
+      
+      
+      if(Hash::check($request->old, $data->password)){
+
+
+       if($request->new != $request->confirm){
+          return  back()->with('fail','password not mathcing');
+       }
+        else{
+
+          if( $request->new ==  $request->old) 
+          {
+          return  back()->with('fail','You dont use old password!!!');
+           }
+
+       else {
+        $data->password= \Hash::make($request->new);
+
+        $save= $data->save();
+        if($save) return back()->with('success','Password Changed');
+        else return  back()->with('fail','Something is wrong');
+       }
+
+        }
+      }
+      else {
+        return  back()->with('fail','incorrect password');
+      }
+    }
+
+    
+
+
 // Profile
     public function profile(){
        $data= ['loggedUser' =>admin::where('id', '=',session('loggedUser'))->first()];
       return view('admin.admin_profile',$data);
        
      }
+       
+      public function update_profile(){
+      $data= ['loggedUser' =>admin::where('id', '=',session('loggedUser'))->first()];
+      return view('admin.update_profile',$data);
+       
+     }
+
 
      public function desboard(){
        $data= ['loggedUser' =>admin::where('id', '=',session('loggedUser'))->first()];
@@ -110,6 +242,13 @@ class admincontroller extends Controller
        $request = driver::orderBy('id')->get();
         
         return view('admin.remove_driver', $data)->with('request',$request);
+    }
+
+    public function password_rest(){
+
+      $data= ['loggedUser'=> admin::where('id', '=', session('loggedUser'))->first()];
+
+      return view('admin.password_reset',$data);
     }
 
 

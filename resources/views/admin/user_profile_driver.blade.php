@@ -5,7 +5,7 @@
  
 <!--Navigation bar Start-->
  
- <h1 style="color:#646f64;">Customer's Profile</h1>
+ <h1 style="color:#646f64;">Driver's Profile</h1>
 <hr>
  <div class="page-content page-container"  style="witdh:1000px; font-weight: bold; margin-top: -30px;margin-left: -30px;">
     <div class="padding">
@@ -39,22 +39,22 @@
                                         <h6 class="text-muted f-w-400">{{$user->cont_no}} </h6>
                                     </div>
                                 </div>
-                                <p class="m-b-20 m-t-40 p-b-5 b-b-default f-w-600" style="color:#6185ec; font-weight: bold;">Address</p>
+                                <p class="m-b-20 m-t-40 p-b-5 b-b-default f-w-600" style="color:#6185ec; font-weight: bold;">Formal Information</p>
                                   <div class="row">
                                     <div class="col-sm-6">
-                                        <p class="m-b-10 f-w-600">Post</p>
-                                        <h6 class="text-muted f-w-400">{{$user->post}} </h6>
+                                        <p class="m-b-10 f-w-600">Bus No</p>
+                                        <h6 class="text-muted f-w-400">{{$user->bus_no}} </h6>
                                     </div>
                                     
                                 </div>
                                 <div class="row">
                                     <div class="col-sm-6">
-                                        <p class="m-b-10 f-w-600">Thana/UZ</p>
-                                        <h6 class="text-muted f-w-400">{{$user->Thana}} </h6>
+                                        <p class="m-b-10 f-w-600">Area</p>
+                                        <h6 class="text-muted f-w-400">{{$user->area}} </h6>
                                     </div>
                                     <div class="col-sm-6">
-                                        <p class="m-b-10 f-w-600">District</p>
-                                        <h6 class="text-muted f-w-400">{{$user->Dist}} </h6>
+                                        <p class="m-b-10 f-w-600">Rank</p>
+                                        <h6 class="text-muted f-w-400">{{$user->rank}} </h6>
                                     </div>
                                 </div>
                                 

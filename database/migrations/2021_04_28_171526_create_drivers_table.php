@@ -15,10 +15,10 @@ class CreateDriversTable extends Migration
     {
         Schema::create('drivers', function (Blueprint $table) {
             $table->id();
-            $table->text('name' );
-            $table->text('email'); 
+            $table->text('name' )->nullable();
+            $table->text('email')->nullable(); 
             $table->text('cont_no')->nullable();
-            $table->text('password');
+            $table->text('password')->nullable();
             $table->integer('bus_no')->nullable();
             $table->text('area')->nullable();
             $table->integer('rank')->nullable();
