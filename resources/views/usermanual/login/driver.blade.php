@@ -15,7 +15,7 @@
 <div class="  log " > 
  <h4 style ="color: gray;">Driver Login</h4>
  <hr>
-  <form action="# " method="POST"  >
+  <form action="{{Route('driverlogin')}} " method="POST"  >
 
         @if(Session::get('fail'))
            <div class="alert alert-danger">

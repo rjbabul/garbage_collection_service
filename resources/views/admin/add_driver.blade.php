@@ -10,7 +10,7 @@
    <div class="page-content page-container"  style="witdh:1000px;">
     <div class="padding">
   <form action="{{route('AddedDriver')}} " method="POST"  >
-    @if(Session::get('success'))
+                                    @if(Session::get('success'))
                                    <div class="alert alert-success">
                                     {{ Session::get('success')}}
                                 @endif

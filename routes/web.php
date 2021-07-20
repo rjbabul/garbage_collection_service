@@ -91,6 +91,16 @@ Route::post('/customer_request_process','CustomerApprovalController@customer_req
 
 Route::post('/customer_request_delete','CustomerApprovalController@customer_request_delete')->name('customer_request_delete');
 
+
+
+/// Driver 
+
+Route::post('/driverlogin','DriverController@driverlogin')->name('driverlogin');
+
+
+
+
+///                     ----------------X -------------
  
 
 
@@ -209,10 +219,16 @@ Route::get('/user_profile_driver','UserController@user_profile_driver')->name('u
  Route::get('/add_driver','admincontroller@add_driver');
  Route::get('/remove_driver','admincontroller@remove_driver');
 
-Route::get('/password_reset','admincontroller@password_rest');
+ Route::get('/password_reset','admincontroller@password_rest');
 
 });
 
+
+
+/// Driver 
+
+
+Route::get('/driver_profile','DriverController@driver_profile')->name('driver_profile');
 
    
 
