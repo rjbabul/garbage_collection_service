@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\admincontroller;
 use App\Http\Controllers\CustomerController;
+use App\Http\Controllers\mapController;
+use App\Http\Controllers\CustomerApprovalController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\feedbackController;
 use App\Http\Controllers\paymentController;
@@ -49,6 +51,10 @@ Route::post('/update_image','CustomerController@update_image')->name('update_ima
 
 Route::post('/update_password','CustomerController@update_password')->name('update_password');
 
+Route::post('/update_customer_location','mapController@update_customer_location')->name('update_customer_location'); //update_customer_location
+
+
+
 /// ---------- PYAMENT -------
 
 
@@ -86,12 +92,13 @@ Route:: post('/AddedCustomer','CustomerController@added_customer')->name('AddedC
 Route:: post('/AddedDriver','DriverController@added_driver')->name('AddedDriver'); 
 
 
+Route::post('/customer_delete','CustomerApprovalController@customer_delete')->name('customer_delete');
 
 Route::post('/customer_request_process','CustomerApprovalController@customer_request_process')->name('customer_request_process');
 
 Route::post('/customer_request_delete','CustomerApprovalController@customer_request_delete')->name('customer_request_delete');
 
-
+Route::post('/customer_request_show','CustomerApprovalController@customer_request_show')->name('customer_request_show');
 
 /// Driver 
 
@@ -105,6 +112,8 @@ Route::post('/driverlogin','DriverController@driverlogin')->name('driverlogin');
 
 
 /// -----------GET Route ----------
+
+Route::middleware(['visitors' ])->group(function () {
 
 
 
@@ -146,11 +155,13 @@ Route::get('/customer_feedback', 'feedbackController@feedback_show') ;
 
 Route::get('/registration','CustomerController@show_register') ;
 
-Route::get('/customer_request','CustomerApprovalController@customer_request');
+});
 
 
      //--------- Customer  ----------
-
+Route::middleware(['AuthCustomer'])->group(function () {
+Route::get('/customer_request','CustomerApprovalController@customer_request');
+Route::get('/customer_request_manual','CustomerApprovalController@customer_request_manual');
 Route::get('/home','CustomerController@profile') ;
 
 Route::get('/update','CustomerController@update') ;
@@ -166,13 +177,11 @@ Route::get('/cardrequest','CustomerController@cardrequest');
 
 Route::get('/change_pin','CustomerController@change_pin');
 
+
+Route::get('/location','CustomerController@location') ;
  
-Route::get('/location', function () {
-	 $data= ['loggedUser' =>customer::where('id', '=',session('loggedUser'))->first()];
-       
-    return view('customer.buslocation',$data);
-}) ;
- 
+ });
+
  
 
 ///  -------------- Admin Panal ------------------
@@ -215,11 +224,15 @@ Route::get('/user_profile_driver','UserController@user_profile_driver')->name('u
  
   
  Route::get('/add_customer','admincontroller@add_customer');
+
  Route::get('/remove_customer','admincontroller@remove_customer');
  Route::get('/add_driver','admincontroller@add_driver');
  Route::get('/remove_driver','admincontroller@remove_driver');
 
  Route::get('/password_reset','admincontroller@password_rest');
+ Route::get('/customer_request_show_get','CustomerApprovalController@customer_request_show_get');
+ Route::get('/customer_select','CustomerApprovalController@customer_select');
+ 
 
 });
 
@@ -228,9 +241,12 @@ Route::get('/user_profile_driver','UserController@user_profile_driver')->name('u
 /// Driver 
 
 
+Route::middleware(['AuthDriver'])->group(function () {
+
 Route::get('/driver_profile','DriverController@driver_profile')->name('driver_profile');
 
    
 
 
  
+}); 

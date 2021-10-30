@@ -53,25 +53,36 @@
             <td> {{$request->post}}</td>
             <td> {{$request->Thana}}</td>
             <td> {{$request->Dist}}</td>
-            <td  > <form action="{{route('customer_request_process')}}" method="POST">
+            <td  > <form action="{{route('customer_request_show')}}" method="POST">
             
         @csrf
         <input type="hidden" name="email" value="{{$request->email}}">
-        <button class="btn btn-success">Approve</button>
+        <button class="btn btn-success">Details</button>
+      </form>
+
+    </td>
+         <td>
+
+            <form action="{{'customer_request_process'}}" method="POST">
+            
+
+        @csrf
+        <input type="hidden" name="email" value="{{$request->email}}" >
+        <button class="btn btn-success" style="margin:5px;">Approve</button>
       </form>
 
     </td>
 
-            <td>
-              <form action="{{route('customer_request_delete')}}" method="POST">
+            <td>   
+             <form action="{{'customer_request_delete'}}" method="POST">
             
         @csrf
         <input type="hidden" name="email" value="{{$request->email}}">
-        <button class="btn btn-warning"> Delete</button>
+        <button class="btn btn-danger">Delete</button>
       </form> 
 
-
-             </td>
+    </td>
+          
          </tr>
 
        @endforeach

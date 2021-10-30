@@ -55,7 +55,7 @@
             <td> {{$request->Dist}}</td>
             
 
-            <td><form action="{{route('customer_request_delete')}}" method="POST">
+            <td><form action="{{route('customer_delete')}}" method="POST">
             
         @csrf
         <input type="hidden" name="email" value="{{$request->email}}">

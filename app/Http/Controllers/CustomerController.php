@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\Models\customer;
+use App\Models\map;
 use App\Models\feedback;
 use App\Models\customer_request;
 use Illuminate\Http\Request;
@@ -107,8 +108,32 @@ class CustomerController extends Controller
       
 function complain() {
   $data= ['loggedUser' =>customer::where('id', '=',session('loggedUser'))->first()];
+  
+  
+
+
     return view('customer.complain',$data);
    }
+
+   function location(){
+     
+     $data= ['loggedUser' =>customer::where('id', '=',session('loggedUser'))->first()];
+      
+     $d = customer::where ('id', '=', session('loggedUser'))->first();
+      
+
+     
+     
+    $location= map::where('username', '=' ,  $d->email)->first();
+
+    $marker = map::orderBy('id')->get();
+     
+      // return view('category.index', compact(['categories', 'products']));
+    return view('customer.buslocation', $data)->with(compact(['data','location','marker']));
+    //return view('customer.buslocation',$data)->with('location', $datamap);;
+   }
+
+
 
 
    public function update_profile(Request $request){
@@ -219,9 +244,14 @@ function complain() {
 
 
     
-}
-
+ 
      
+// MAP 
 
 
+
+
+
+
+}
  

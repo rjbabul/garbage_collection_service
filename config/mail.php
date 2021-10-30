@@ -70,6 +70,18 @@ return [
         'array' => [
             'transport' => 'array',
         ],
+
+        'failover' => [
+        'transport' => 'failover',
+        'mailers' => [
+            'postmark',
+            'mailgun',
+            'sendmail',
+        ],
+    ],
+
+    'default' => env('MAIL_MAILER', 'failover'),
+
     ],
 
     /*
@@ -84,9 +96,11 @@ return [
     */
 
     'from' => [
-        'address' => env('MAIL_FROM_ADDRESS', 'hello@example.com'),
-        'name' => env('MAIL_FROM_NAME', 'Example'),
+        'address' => env('MAIL_FROM_ADDRESS', 'onlinegarbagecollection@gmail.com'),
+        'name' => env('MAIL_FROM_NAME', 'Online Garbage Collection'),
     ],
+
+    'reply_to' => ['address' => 'onlinegarbagecollection@gmail.com', 'name' => 'Online Garbage Collection'],
 
     /*
     |--------------------------------------------------------------------------

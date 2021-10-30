@@ -7,7 +7,7 @@
  
  <h1 style="color:#646f64;">Customer's Profile</h1>
 <hr>
- <div class="page-content page-container"  style="witdh:1000px; font-weight: bold; margin-top: -30px;margin-left: -30px;">
+ <div class="page-content page-container"  style="witdh:1000px; font-weight: bold; margin-top: -30px;margin : auto; height: cover;">
     <div class="padding">
         <div class="row container d-flex justify-content-center">
             <div class="col-xl-10 col-md-12">
@@ -19,7 +19,7 @@
                         <div class="col-sm-8">
                             <div class="card-block">
                                 <p style="font-weight: bold; color: #6185ec">General Information</p>
-                                    	<hr>
+                                      <hr>
                                 <div class="row">
 
                                     <div class="col-sm-6">
@@ -59,7 +59,11 @@
                                 </div>
                                 
                             </div>
+                           
                         </div>
+
+
+
                     </div>
                 </div>
             </div>
@@ -118,7 +122,7 @@
             
             <td>
 
-               <a href="/customers_list" class="btn btn-success" style="width:100px; margin-left:30px;"> back </a>
+               <a href="/request_pendin" class="btn btn-success" style="width:100px; margin-left:30px;"> back </a>
 
              </td>
 
@@ -131,6 +135,7 @@
 </div>
 </div>
 </div>
+ 
 
 @endsection
 

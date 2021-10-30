@@ -19,9 +19,12 @@ class CreateCustomersTable extends Migration
             $table->text('email')->nullable(); 
             $table->text('cont_no')->nullable();
             $table->text('password')->nullable();
+            $table->text('driverRegiNo')->nullable();
             $table->text('Dist')->nullable();
             $table->text('Thana')->nullable();
             $table->text('post')->nullable();
+            $table->text('lat')->nullable();
+            $table->text('long')->nullable();
             $table->text('image')->nullable();
             $table->timestamps();
         });

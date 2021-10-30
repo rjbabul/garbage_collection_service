@@ -33,6 +33,13 @@
         <link rel="stylesheet" href= {{asset('css/style.css')}} >
         <link rel="stylesheet" href= {{asset('css/stelex.css')}} >
 
+
+
+<script src='https://api.mapbox.com/mapbox-gl-js/v2.3.1/mapbox-gl.js'></script>
+<link href='https://api.mapbox.com/mapbox-gl-js/v2.3.1/mapbox-gl.css' rel='stylesheet' />
+
+
+
   </head>
   <body  >
 

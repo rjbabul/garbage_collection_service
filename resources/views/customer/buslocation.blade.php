@@ -34,6 +34,10 @@
         <link rel="stylesheet" href= {{asset('css/style.css')}} >
         <link rel="stylesheet" href= {{asset('css/stelex.css')}} >
 
+
+<script src='https://api.mapbox.com/mapbox-gl-js/v2.3.1/mapbox-gl.js'></script>
+<link href='https://api.mapbox.com/mapbox-gl-js/v2.3.1/mapbox-gl.css' rel='stylesheet' />
+ 
   </head>
   <body  >
 
@@ -111,10 +115,86 @@
      <div  class="  mr-top-20 bdc">
     <br>
     <!-- body  -->
-     
-      
-      Welcome to cutomer profile .
+    <div class="row"> 
+     <div class="col-2">
 
+     
+
+</div>
+    
+
+    <div class="col-10" id='map' style='width: cover; height: 500px;'>
+      <script>
+  mapboxgl.accessToken = 'pk.eyJ1IjoicmpiYWJ1bCIsImEiOiJja3UydmY0NTUxbnh0MnZvcW94NmFzbXl6In0.9NAL5H9c01siH46UPF7URg';
+  var map = new mapboxgl.Map({
+    container: 'map',
+    style: 'mapbox://styles/mapbox/streets-v11',
+    center: [  @json($location->longitude ), @json($location->latitude )    ], // starting position
+    zoom: 9 // starting zoom
+  });
+
+
+  map.addControl(new mapboxgl.NavigationControl());
+
+  @foreach($marker as $markers)
+     
+      var marker = new mapboxgl.Marker({ color: 'black', rotation: 0 })
+       .setLngLat([  @json($markers->longitude ), @json($markers->latitude )    ]).setPopup(
+            new mapboxgl.Popup({ offset: 25 }) 
+              .setHTML(
+                 
+              )
+          )
+       .addTo(map);
+      
+ @endforeach
+
+
+map.on('load', () => {
+map.addSource('route', {
+'type': 'geojson',
+'data': {
+'type': 'Feature',
+'properties': {},
+'geometry': {
+'type': 'LineString',
+'coordinates': [
+   
+    @foreach($marker as $markers)
+       [  {!! json_encode($markers->latitude ) !!} ,{!! json_encode($markers->longitude ) !!}   ] ,
+        
+      @endforeach
+    
+ 
+]
+}
+}
+});
+
+map.addLayer({
+'id': 'route',
+'type': 'line',
+'source': 'route',
+'layout': {
+'line-join': 'round',
+'line-cap': 'round'
+},
+'paint': {
+'line-color': '#888',
+'line-width': 6
+}
+});
+});
+
+
+</script>
+
+
+</div>
+
+</div>
+
+<!--- END BODY -- >
  
      <!-- footer  -->
      <br>

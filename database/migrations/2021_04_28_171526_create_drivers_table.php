@@ -18,6 +18,7 @@ class CreateDriversTable extends Migration
             $table->text('name' )->nullable();
             $table->text('email')->nullable(); 
             $table->text('cont_no')->nullable();
+            $table->text('driverRegiNo')->nullable();
             $table->text('password')->nullable();
             $table->integer('bus_no')->nullable();
             $table->text('area')->nullable();

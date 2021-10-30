@@ -50,7 +50,7 @@
 
          
     </style>
-
+ 
   
 
   </head>
@@ -185,7 +185,7 @@
   
                            <h6 class="m-b-20 p-b-5 b-b-default f-w-600 ">Update Your Location</h6>
                
-                       <form action="{{route('update_customer_location')}}" method="POST">
+                        <form action="{{route('update_customer_location')}}" method="POST">
 
                         @csrf
                                 <script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.7.2/mapbox-gl-geocoder.min.js"></script>
@@ -206,19 +206,81 @@
                                  
 
                                     <script>
-                                       
-                                        var inputF = document.getElementById("id1");
-                                        var inputF2 = document.getElementById("id2");
+                                        mapboxgl.accessToken = 'pk.eyJ1IjoicmpiYWJ1bCIsImEiOiJja3UydmY0NTUxbnh0MnZvcW94NmFzbXl6In0.9NAL5H9c01siH46UPF7URg';
+                                              const map = new mapboxgl.Map({
+                                                container: 'map',
+                                                style: 'mapbox://styles/mapbox/streets-v11',
+                                                center: [90, 24], // starting position
+                                                zoom: 12
+                                              });
+                                                map.addControl(
+                                                      new MapboxGeocoder({
+                                                          accessToken: mapboxgl.accessToken,
+                                                          mapboxgl: mapboxgl
+                                                      }) 
+                                               
+                                                     );
+                                                    
+                                        var inputF = document.getElementById("id2");
+                                        var inputF2 = document.getElementById("id1");
                                         
                                          setInterval(() => {
                                             navigator.geolocation.getCurrentPosition(getPosition)
                                         }, 5000);
+
                                 function getPosition(position){
                                         // console.log(position)
-                                        lat = position.coords.latitude
-                                          
-                          
-                                          long = position.coords.longitude
+                                        
+                                                                                         
+                                              map.on('click', ({ lngLat }) => {
+                                                const coords = Object.keys(lngLat).map((key) => lngLat[key]);
+                                                const end = {
+                                                  type: 'FeatureCollection',
+                                                  features: [
+                                                    {
+                                                      type: 'Feature',
+                                                      properties: {},
+                                                      geometry: {
+                                                        type: 'Point',
+                                                        coordinates: coords
+                                                      }
+                                                    }
+                                                  ]
+                                                };
+
+                                                   if (map.getLayer('end')) {
+                                                    map.getSource('end').setData(end);
+                                                  } else {
+                                                    map.addLayer({
+                                                      id: 'end',
+                                                      type: 'circle',
+                                                      source: {
+                                                        type: 'geojson',
+                                                        data: {
+                                                          type: 'FeatureCollection',
+                                                          features: [
+                                                            {
+                                                              type: 'Feature',
+                                                              properties: {},
+                                                              geometry: {
+                                                                type: 'Point',
+                                                                coordinates: coords
+
+                                                              }
+                                                            }
+                                                          ]
+                                                        }
+                                                      },
+                                                      paint: {
+                                                        'circle-radius': 10,
+                                                        'circle-color': '#f30'
+                                                      }
+                                                    });
+                                                  }
+                                                lat = coords[0]
+                                                long = coords[1]
+                                                getRoute(coords);
+                                              });
                                           }
 
                                            function gfg_Run1() {
@@ -234,9 +296,9 @@
                                         }
                                     </script>
 
-                            <input type="submit" name = "Confirm" value="Set current location" class="btn btn-success"  style="height: 40px;  ">
+                            <input type="submit" name = "Confirm" value="Set  location" class="btn btn-success"  style="height: 40px;  ">
 
-                            <a href="{{asset('customer_request_manual')}}" class="btn btn-danger"   >Add Manually</a>
+                            
                           </form>
                           
 </div>
@@ -348,62 +410,4 @@
   </body>
 </html>
 
-<script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
-<script>
-    // Map initialization 
-    mapboxgl.accessToken = 'pk.eyJ1IjoicmpiYWJ1bCIsImEiOiJja3UydmY0NTUxbnh0MnZvcW94NmFzbXl6In0.9NAL5H9c01siH46UPF7URg';
-    const map = L.map('map').setView([90.0860746, 24.608406], 6);
-    
-    
-    //osm layer
-    var osm = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-    });
-    osm.addTo(map);
-
-   
-    if(!navigator.geolocation) {
-        console.log("Your browser doesn't support geolocation feature!")
-    } else {
-        setInterval(() => {
-            navigator.geolocation.getCurrentPosition(getPosition)
-        }, 5000);
-    }
-
-
-    var marker, circle;
-
-    function getPosition(position){
-        // console.log(position)
-          lat = position.coords.latitude
-          long = position.coords.longitude
-        var accuracy = position.coords.accuracy
-
-        if(marker) {
-            map.removeLayer(marker)
-        }
-
-        if(circle) {
-            map.removeLayer(circle)
-        }
-
-        marker = L.marker([lat, long])
-        circle = L.circle([lat, long], {radius: accuracy})
-
-        var featureGroup = L.featureGroup([marker, circle]).addTo(map)
-
-        map.fitBounds(featureGroup.getBounds())
-        map.addControl(
-        new MapboxGeocoder({
-            accessToken: mapboxgl.accessToken,
-            mapboxgl: mapboxgl
-        })
-    );
-        
-        
-    }
-
-
-    
-
-</script>
+ 

@@ -21,6 +21,8 @@ class CreateCustomerRequestsTable extends Migration
             $table->text('password')->nullable();
             $table->text('Dist')->nullable();
             $table->text('Thana')->nullable();
+            $table->text('lat')->nullable();
+            $table->text('long')->nullable();
             $table->text('post')->nullable();
             $table->text('image')->nullable();
             $table->timestamps();
