@@ -130,7 +130,7 @@ function complain() {
      
       // return view('category.index', compact(['categories', 'products']));
     return view('customer.buslocation', $data)->with(compact(['data','location','marker']));
-    //return view('customer.buslocation',$data)->with('location', $datamap);;
+     
    }
 
 

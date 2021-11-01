@@ -8,6 +8,7 @@ use App\Models\feedback;
 use App\Models\customer;
 use App\Models\customer_request;
 use App\Models\driver;
+use App\Models\map;
 use Illuminate\Support\Facades\Hash;
 
 class admincontroller extends Controller
@@ -260,5 +261,49 @@ class admincontroller extends Controller
         session()->pull('loggedUser');
         return redirect('LoginAdmin');
       }
+    }
+
+    public function update_driver_info( Request $email){
+
+
+      $data= ['loggedUser'=> admin::where('id', '=', session('loggedUser'))->first()];
+
+        $count=0;
+            for ($x = 24; $x < strlen($email); $x++) {
+              if( substr($email, $x, 4)==".com"){
+                $count= $count+4;
+                break;
+              }
+              $count++;
+            }
+           
+
+           $ds= substr($email,24,$count);
+          
+           $dt =driver::where('email' , '=', $ds)->first();
+           
+      return view('admin.update_driver_info',$data)->with('user', $dt);
+    }
+
+    public function reset_collection(){
+      $data= ['loggedUser'=> admin::where('id', '=', session('loggedUser'))->first()];
+      return view('admin.reset_collection',$data);
+    }
+
+    public function garbage_status(){
+      $data= ['loggedUser' =>admin::where('id', '=',session('loggedUser'))->first()];
+      
+     $d = admin::where ('id', '=', session('loggedUser'))->first();
+      
+
+     
+     
+    $location= map::where('username', '=' ,  $d->email)->first();
+
+    $marker = map::orderBy('id')->get();
+     
+      // return view('category.index', compact(['categories', 'products']));
+    return view('admin.garbage_status', $data)->with(compact(['data','location','marker']));
+       
     }
 }

@@ -100,12 +100,21 @@ Route::post('/customer_request_delete','CustomerApprovalController@customer_requ
 
 Route::post('/customer_request_show','CustomerApprovalController@customer_request_show')->name('customer_request_show');
 
+Route::post('/updateDriverProfile','DriverController@updateDriverProfile')->name('updateDriverProfile');
+
+Route::post('/reset','mapController@reset')->name('reset');
+
+
 /// Driver 
 
 Route::post('/driverlogin','DriverController@driverlogin')->name('driverlogin');
 
+Route::post('/deriver_update_image','DriverController@deriver_update_image')->name('deriver_update_image');
+Route::post('/driverUpdateProfile','DriverController@driverUpdateProfile')->name('driverUpdateProfile');
 
+Route::post('/driver_update_password','DriverController@driver_update_password')->name('driver_update_password');
 
+Route::post('/collect','mapController@collect')->name('collect');
 
 ///                     ----------------X -------------
  
@@ -232,7 +241,9 @@ Route::get('/user_profile_driver','UserController@user_profile_driver')->name('u
  Route::get('/password_reset','admincontroller@password_rest');
  Route::get('/customer_request_show_get','CustomerApprovalController@customer_request_show_get');
  Route::get('/customer_select','CustomerApprovalController@customer_select');
- 
+ Route::get('/update_driver_info','admincontroller@update_driver_info')->name('update_driver_info');
+ Route::get('/reset_collection','admincontroller@reset_collection');
+ Route::get('/garbage_status','admincontroller@garbage_status');
 
 });
 
@@ -244,9 +255,13 @@ Route::get('/user_profile_driver','UserController@user_profile_driver')->name('u
 Route::middleware(['AuthDriver'])->group(function () {
 
 Route::get('/driver_profile','DriverController@driver_profile')->name('driver_profile');
+Route::get('driver_update_profile','DriverController@driver_update_profile')->name('driver_update_profile');
 
-   
+Route::get('/driver_password_change','DriverController@driver_password_change')->name('driver_password_change') ;
 
+Route::get('/drivercollect_waste','DriverController@drivercollect_waste')->name('drivercollect_waste');
+
+Route::get('/viewroute','DriverController@viewroute')->name('viewroute');
 
  
 }); 

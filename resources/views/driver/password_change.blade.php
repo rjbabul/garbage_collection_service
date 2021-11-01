@@ -1,7 +1,10 @@
+@extends('driver.driver_tamplate')
 
-   @extends('customer.CustomerPageTemplate')
-   @section('content')
-   <head><title>Update Profile</title></head>
+@section('content')
+
+ 
+<!--Navigation bar Start--> 
+   <head><title>Change Password  </title></head>
    <!-- body  -->
      <div  class="  mr-top-20 bdc">
     <br>
@@ -17,16 +20,11 @@
                         <div class="col-sm-4   user-profile">
                             <img  src="{{$loggedUser['image']}}" style="height: cover;">
 
-                            <form action="{{route('update_image')}}" method ="POST">
-                              @csrf
-  <label for="img">Select image:</label>
-  <input type="file" id="img" name="img" accept="image/*">
-  <input type="submit">
-</form>
+                             
                         </div>
 
                         <div class="col-sm-8">
-                          <form action="{{route('update_profile')}} " method="POST"  >
+                          <form action="{{route('driver_update_password')}} " method="POST"  >
                                @if(Session::get('success'))
                                    <div class="alert alert-success">
                                     {{ Session::get('success')}}
@@ -39,36 +37,30 @@
                                 
                             @csrf
                             <div class="card-block">
-                                <h6 class="m-b-20 p-b-5 b-b-default f-w-600">Information</h6>
-                               
-                                <div class="row">
-                                     
-                                    <div class="col-sm-6">
-                                        <p class="m-b-10 f-w-600">Phone</p>
-                                        <h6 class="text-muted f-w-400"> 
-                                        <input type="text" name="cont"> </h6>
-                                    </div>
-                                </div>
-                                <h6 class="m-b-20 m-t-40 p-b-5 b-b-default f-w-600">Address</h6>
+                                 
+                                <h3 class="m-b-20 m-t-40 p-b-5 b-b-default f-w-600">Update Password</h3>
                                   <div class="row">
                                     <div class="col-sm-6">
-                                        <p class="m-b-10 f-w-600">Post</p>
-                                        <h6 class="text-muted f-w-400"><input type="text" name="post"> </h6>
+                                        <p class="m-b-10 f-w-600">Old Password</p>
+                                        <h6 class="text-muted f-w-400"><input type="password" name="old"> </h6>     <span class="text-danger">@error('old'){{$message}} @enderror</span>
                                     </div>
                                     
-                                </div>
+                                </div><br>
                                 <div class="row">
                                     <div class="col-sm-6">
-                                        <p class="m-b-10 f-w-600">Thana/UZ</p>
-                                        <h6 class="text-muted f-w-400"><input type="text" name="thana"> </h6>
+                                        <p class="m-b-10 f-w-600">New Password</p>
+                                        <h6 class="text-muted f-w-400"><input type="password" name="new"> </h6>
+
+                                        <span class="text-danger">@error('new'){{$message}} @enderror</span>
                                     </div>
                                     <div class="col-sm-6">
-                                        <p class="m-b-10 f-w-600">District</p>
-                                        <h6 class="text-muted f-w-400"><input type="text" name="district"> </h6>
+                                        <p class="m-b-10 f-w-600">Confirm Password</p>
+                                        <h6 class="text-muted f-w-400"><input type="password" name="confirm"> </h6>
+                                        <span class="text-danger">@error('confirm'){{$message}} @enderror</span>
                                     </div>
                                 </div>
-                               
-                                <input type="submit" name = "Update" value="Update" class="btn btn-success">
+                               <br> 
+                                <input type="submit" name = "update" value="Change Password" class="btn btn-success">
                             </div> 
                           </form>
                         </div>
@@ -81,5 +73,5 @@
 </div>
 
 
-   
- @endsection
+
+@endsection

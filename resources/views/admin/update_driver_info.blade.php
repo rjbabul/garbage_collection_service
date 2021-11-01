@@ -5,7 +5,7 @@
  
 <!--Navigation bar Start-->
  
- <h1 style="color:#646f64;">Driver's Profile</h1>
+ <h1 style="color:#646f64;">Update Driver's Profile </h1>
 <hr>
  <div class="page-content page-container"  style="witdh:1000px; font-weight: bold; margin-top: -30px;margin-left: -30px;">
     <div class="padding">
@@ -17,9 +17,11 @@
                             <img  src="{{$user->image}}" style="height: cover; width: cover;">
                         </div>
                         <div class="col-sm-8">
+                          
+
                             <div class="card-block">
                                 <p style="font-weight: bold; color: #6185ec">General Information</p>
-                                    	<hr>
+                                      <hr>
                                 <div class="row">
 
                                     <div class="col-sm-6">
@@ -41,32 +43,48 @@
                                 </div>
                                 <p class="m-b-20 m-t-40 p-b-5 b-b-default f-w-600" style="color:#6185ec; font-weight: bold;">
                                 <div class="row">
-                                    
-                                <div class="col-8">Formal Information</div> 
-                                 <div class="col-4"><a href="{{Route('update_driver_info', $user->email  )}}" style="  color:gray;">Edit</a> 
-                                 </div>   
+                                     @if(Session::get('success'))
+                                   <div class="alert alert-success">
+                                    {{ Session::get('success')}}
+                                @endif
+
+                                 @if(Session::get('fail'))
+                                   <div class="alert alert-danger">
+                                    {{ Session::get('fail')}}
+                                @endif
+
+                                <div class="col-12">Formal Information</div> 
+                                   
 
                             </div> 
 
                             </p>
+                            <form action ="{{Route('updateDriverProfile')}} " method="POST">
+
+                              @csrf
+                                   
                                   <div class="row">
                                     <div class="col-sm-6">
                                         <p class="m-b-10 f-w-600">Bus No</p>
-                                        <h6 class="text-muted f-w-400">{{$user->bus_no}} </h6>
+                                        <h6 class="text-muted f-w-400"><input type="number" name="busno"> </h6>
                                     </div>
                                     
                                 </div>
                                 <div class="row">
                                     <div class="col-sm-6">
                                         <p class="m-b-10 f-w-600">Area</p>
-                                        <h6 class="text-muted f-w-400">{{$user->area}} </h6>
+                                        <h6 class="text-muted f-w-400"><input type="text" name="area"> </h6>
                                     </div>
                                     <div class="col-sm-6">
                                         <p class="m-b-10 f-w-600">Rank</p>
-                                        <h6 class="text-muted f-w-400">{{$user->rank}} </h6>
+                                        <h6 class="text-muted f-w-400"><input type="number" name="rank"> </h6>
                                     </div>
                                 </div>
-                                
+                                <input type="hidden" name="email" value="{{$user->email}}">
+                                <input type="submit" name = "update" value="Update" class="btn btn-success" style="margin-left:320px; margin-bottom: 30px; ">
+                            </div> 
+
+                                </form>
                             </div>
                         </div>
                     </div>

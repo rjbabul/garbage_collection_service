@@ -114,7 +114,17 @@
   </div>
 <hr>
  
- 
+ <div class="dropdown dropright " >
+    <button type="button" class="btn  dropdown-toggle" data-toggle="dropdown" style="background-color:#4e73df;  color:white; margin-left: -10px;  ">
+     <i class="fa fa-user" style=" color:#ffffff;"></i> Garbage
+    </button>
+    <div class="dropdown-menu" style="font-size: 12px;">
+      
+      <a class="dropdown-item" href="\garbage_status">Check collection</a>
+      
+    </div>
+  </div>
+  <hr>
 
 
 </div>
@@ -187,9 +197,35 @@
 
 
 
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+<script src={{asset('css/temp/js/jquery-3.3.1.min.js')}} ></script>
+
+<script src={{asset('css/temp/styles/bootstrap-4.1.2/popper.js')}}></script>
+<script src={{asset('styles/bootstrap-4.1.2/bootstrap.min.js')}}></script>
+
+<script src={{asset('css/temp/plugins/greensock/TweenMax.min.js')}}></script>
+
+<script src= {{asset('css/temp/plugins/greensock/TimelineMax.min.js')}} ></script>
+
+<script src={{asset('css/temp/plugins/scrollmagic/ScrollMagic.min.js')}}></script>
+<script src={{asset('css/temp/plugins/greensock/animation.gsap.min.js')}}></script>
+
+<script src={{asset('css/temp/plugins/greensock/ScrollToPlugin.min.js')}}></script>
+
+
+
+<script src={{asset('css/temp/plugins/OwlCarousel2-2.3.4/owl.carousel.js')}}
+></script>
+<script src= {{asset('css/temp/plugins/easing/easing.js')}}></script>
+
+<script src= {{asset('css/temp/plugins/progressbar/progressbar.min.js')}}></script>
+
+<script src={{asset('css/temp/plugins/parallax-js-master/parallax.min.js')}}></script>
+<script src={{asset('css/temp/plugins/jquery-datepicker/jquery-ui.js')}} ></script>
+<script src={{asset('css/temp/plugins/colorbox/jquery.colorbox-min.js')}}></script>
+<script src={{asset('css/temp/js/custom.js')}}></script>
+
+   
+ <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
 </body>
 </html>

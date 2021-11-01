@@ -2,13 +2,12 @@
 <html lang="en">
   <head>
     <!-- Required meta tags -->
-    <meta charset="utf-8">
+ <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
        <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="description" content="The River template project">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" type="text/css" href={{asset('css/temp/styles/bootstrap-4.1.2/bootstrap.min.css')}}>
-  
 <link href={{asset('css/temp/plugins/font-awesome-4.7.0/css/font-awesome.min.css')}} rel="stylesheet" type="text/css">
 <link rel="stylesheet" type="text/css" href={{asset('css/temp/plugins/OwlCarousel2-2.3.4/owl.carousel.css')}}>
 <link rel="stylesheet" type="text/css" href={{asset('css/temp/plugins/OwlCarousel2-2.3.4/owl.theme.default.css')}} >
@@ -22,7 +21,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
    
-         
+        
           
         <!-- add icon link -->
         <link rel = "icon" href = {{asset('image/user/wms.jpg')}} 
@@ -34,12 +33,9 @@
         <link rel="stylesheet" href= {{asset('css/stelex.css')}} >
 
 
-
 <script src='https://api.mapbox.com/mapbox-gl-js/v2.3.1/mapbox-gl.js'></script>
 <link href='https://api.mapbox.com/mapbox-gl-js/v2.3.1/mapbox-gl.css' rel='stylesheet' />
-
-
-
+ 
   </head>
   <body  >
 
@@ -51,26 +47,22 @@
       <div class="ml-auto d-flex flex-row align-items-center justify-content-start">
         <nav class="main_nav">
           <ul class="d-flex flex-row align-items-start justify-content-start">
-       
-            <li class=" "><a href="#">view rout</a></li>
-            <li class=" "><a href="#">salary status</a></li>
-            <li class=" "><a href="#">Collect waste</a></li>
-             
-            <li class=" "><a href="#"> </a></li>
-             
-<li>
+           <li>
              <div class="dropdown   " >
-    <a type="button" class="btn   " data-toggle="dropdown" style="   color:#ffffff; margin-top: -8px; font-size: 14px;">
+    <a href="{{Route('driver_profile')}}" type="button" class="btn  "  style="   color:#ffffff; margin-top: -8px; font-size: 14px;">
     {{$loggedUser['name']}} <img src="{{$loggedUser['image']}}" class="img-profile rounded-circle" height="30" width="30"> 
     </a>
-    <div class="dropdown-menu" style="background-color: black;">
-      <a class="dropdown-item" href="/home">Profile</a>
-      <a class="dropdown-item" href="/update">Update Profile</a>
-      <a class="dropdown-item" href="/change_pin">Change Password</a>
-      <hr>
-      <a  href="{{Route('logout')}}" class="dropdown-item"  > <i class="fa fa-sign-out" style=" color:gray;"></i> LogOut</a>
-    </div>
+
   </div></li>
+             
+            <li class=" "><a href=" {{Route('driver_update_profile')}} ">Update Profile</a></li>
+            <li class=" "><a href=" {{Route('drivercollect_waste')}} ">Collect waste</a></li>
+            <li class=" "><a href="{{Route('viewroute') }} ">View Route</a></li>
+            <li class=" "><a href="{{Route('driver_password_change') }} ">Change Password</a></li>
+
+            
+
+   <li class=" "><a  href="{{Route('logout')}}" class="dropdown-item"  > <i class="fa fa-sign-out" style=" color:gray;"></i> LogOut</a></li>
             
           </ul>
         </nav>
@@ -122,60 +114,20 @@
      <!-- footer  -->
      <br>
      <br>
-   </div>
-     <div>
-     <section style="height:50px;"></section>
-  <div class="row" style="text-align:center;">
     
-  </div>
-    <!----------- Footer ------------>
-    <footer class="footer-bs">
-        <div class="row">
-          <div class="col-md-3 footer-brand animated fadeInLeft">
-              <h2>Logo</h2>
-                <p>Suspendisse hendrerit tellus laoreet luctus pharetra. Aliquam porttitor vitae orci nec ultricies. Curabitur vehicula, libero eget faucibus faucibus, purus erat eleifend enim, porta pellentesque ex mi ut sem.</p>
-                <p>© 2020 ,All rights reserved</p>
-            </div>
-          <div class="col-md-4 footer-nav animated fadeInUp">
-              <h4>Menu —</h4>
-               
-              <div class="col-md-6">
-                    <ul class="list">
-                        <li><a href="#">About Us</a></li>
-                        <li><a href="#">Contacts</a></li>
-                        <li><a href="#">Terms & Condition</a></li>
-                        <li><a href="#">Privacy Policy</a></li>
-                    </ul>
-                </div>
-            </div>
-          <div class="col-md-2 footer-social animated fadeInDown">
-              <h4>Follow Us</h4>
-              <ul>
-                  <li><a href="#">Facebook</a></li>
-                  <li><a href="#">Twitter</a></li>
-                  <li><a href="#">Instagram</a></li>
-                  <li><a href="#">Linkedin</a></li>
-                </ul>
-            </div>
-          <div class="col-md-3 footer-ns animated fadeInRight">
-              <h4>Newsletter</h4>
-                <p>A rover wearing a fuzzy suit doesn’t alarm the real penguins</p>
-                <p>
-                    <div class="input-group">
-                      <input type="text" class="form-control" placeholder="Search for.">
-                      <span class="input-group-btn">
-                        <button class="btn btn-default" type="button">search<span class="glyphicon glyphicon-envelope"></span></button>
-                      </span>
-                    </div><!-- /input-group -->
-                 </p>
-            </div>
-        </div>
-    </footer>
-    <section style="text-align:center; margin:10px auto;"><p>Designed by <a href="http://enfoplus.net">Rj. Babul</a></p></section>
-  </div>
       
-      
+  <div class="row" style="background-color:gray;  height: 100px; width: cover; font-weight: bold;  margin: auto;  text-align: center;color: white;" >
+    
+    <div class="col-2"><img src="{{asset('image/user/logo.jpg')}}" class="img-profile rounded-circle" height="100" width="100"> </div>
+    <div class="col-8" style="margin-top:50px; font-size: 20px;">Designed By : Babul Akter</div>
 
+    <div class="col-2">
+
+
+    </div>
+  </div>
+     
+    
       <!--End Footer -->
   
 

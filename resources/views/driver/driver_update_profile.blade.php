@@ -1,7 +1,10 @@
+@extends('driver.driver_tamplate')
 
-   @extends('customer.CustomerPageTemplate')
-   @section('content')
-   <head><title>Update Profile</title></head>
+@section('content')
+
+ 
+<!--Navigation bar Start--> 
+  <head><title>Update Profile</title></head>
    <!-- body  -->
      <div  class="  mr-top-20 bdc">
     <br>
@@ -17,7 +20,7 @@
                         <div class="col-sm-4   user-profile">
                             <img  src="{{$loggedUser['image']}}" style="height: cover;">
 
-                            <form action="{{route('update_image')}}" method ="POST">
+                            <form action="{{route('deriver_update_image')}}" method ="POST">
                               @csrf
   <label for="img">Select image:</label>
   <input type="file" id="img" name="img" accept="image/*">
@@ -26,7 +29,7 @@
                         </div>
 
                         <div class="col-sm-8">
-                          <form action="{{route('update_profile')}} " method="POST"  >
+                          <form action="{{route('driverUpdateProfile')}} " method="POST"  >
                                @if(Session::get('success'))
                                    <div class="alert alert-success">
                                     {{ Session::get('success')}}
@@ -67,7 +70,8 @@
                                         <h6 class="text-muted f-w-400"><input type="text" name="district"> </h6>
                                     </div>
                                 </div>
-                               
+                                
+                                </ul>
                                 <input type="submit" name = "Update" value="Update" class="btn btn-success">
                             </div> 
                           </form>
@@ -81,5 +85,5 @@
 </div>
 
 
-   
- @endsection
+
+@endsection

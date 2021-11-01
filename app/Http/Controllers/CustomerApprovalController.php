@@ -8,6 +8,7 @@ use App\Models\feedback;
 use App\Models\customer_request;
 use Illuminate\Http\Request;
 use App\Models\admin;
+use App\Models\map;
 use Illuminate\Support\Facades\Hash;
 
  
@@ -81,6 +82,7 @@ class CustomerApprovalController extends Controller
              $data= customer_request::where('email', '=',$request->email)->first();
  
              $customer = new customer;
+             $marker = new map;
               
              $customer->name= $data->name;
              $customer->email= $data->email;
@@ -93,7 +95,20 @@ class CustomerApprovalController extends Controller
 
              $customer->lat = $data->lat;
              $customer->long= $data->long;
+         
+              
+             $marker->name= $data->name;
+             $marker->username= $data->email;
+              
+             $marker->description= "red";
+             $marker->thana = $data->Thana;
+             $marker->cont_no = $data->cont_no;
+             $marker->dist = $data->post;
+             
 
+             $marker->latitude = $data->lat;
+             $marker->longitude= $data->long;
+             $marker->save();
 
              $save=$customer->save();
              $data->delete();

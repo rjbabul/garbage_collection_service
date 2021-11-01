@@ -20,11 +20,15 @@ class CreateDriversTable extends Migration
             $table->text('cont_no')->nullable();
             $table->text('driverRegiNo')->nullable();
             $table->text('password')->nullable();
+            $table->text('post')->nullable();
+            $table->text('thana')->nullable();
+            $table->text('zila')->nullable();
             $table->integer('bus_no')->nullable();
             $table->text('area')->nullable();
             $table->integer('rank')->nullable();
             $table->text('image')->nullable();
             $table->timestamps();
+            
         });
     }
 

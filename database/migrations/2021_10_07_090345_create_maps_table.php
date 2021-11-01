@@ -16,6 +16,10 @@ class CreateMapsTable extends Migration
         Schema::create('maps', function (Blueprint $table) {
             $table->id();
             $table->text('username')->nullable();
+            $table->text('name')->nullable();
+            $table->text('cont_no')->nullable();
+            $table->text('thana')->nullable();
+            $table->text('dist')->nullable();
             $table->text('latitude')->nullable();
             $table->text('longitude')->nullable();
             $table->text('description')->nullable();

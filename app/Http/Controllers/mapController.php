@@ -23,14 +23,7 @@ class mapController extends Controller
    
      $data->lat= $request->let;
      $data->long= $request->long;
-
-
-     $marker->username= $data->email;
-     $marker->latitude= $request->let;
-     $marker->longitude=$request->long;
-     
-      
-       $save = $marker->save();
+ 
        $save = $data->save();
 
         if($save){
@@ -42,6 +35,29 @@ class mapController extends Controller
 
       
 }
+
+public function reset(){
+
+    $marker = map::orderBy('id')->get();
+
+    foreach($marker as $mar) {
+    $mar->description = 'red';
+    $mar->save();
+   }
+    
+    return back()->with('success','successfully reset');
+}
+
+public function collect(Request $request){
+
+    $data= map::where('username','=', $request->email)->first();
+
+    $data->description="green";
+    $data->save();
+
+    return back();
+}
+
 
 
 }

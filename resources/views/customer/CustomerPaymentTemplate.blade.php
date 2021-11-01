@@ -105,51 +105,16 @@
    @yield('content');
 
     <!----------- Footer ------------>
-    <footer class="footer-bs">
-        <div class="row">
-          <div class="col-md-3 footer-brand animated fadeInLeft">
-              <h2>Logo</h2>
-                <p>Suspendisse hendrerit tellus laoreet luctus pharetra. Aliquam porttitor vitae orci nec ultricies. Curabitur vehicula, libero eget faucibus faucibus, purus erat eleifend enim, porta pellentesque ex mi ut sem.</p>
-                <p>© 2020 ,All rights reserved</p>
-            </div>
-          <div class="col-md-4 footer-nav animated fadeInUp">
-              <h4>Menu —</h4>
-               
-              <div class="col-md-6">
-                    <ul class="list">
-                        <li><a href="#">About Us</a></li>
-                        <li><a href="#">Contacts</a></li>
-                        <li><a href="#">Terms & Condition</a></li>
-                        <li><a href="#">Privacy Policy</a></li>
-                    </ul>
-                </div>
-            </div>
-          <div class="col-md-2 footer-social animated fadeInDown">
-              <h4>Follow Us</h4>
-              <ul>
-                  <li><a href="#">Facebook</a></li>
-                  <li><a href="#">Twitter</a></li>
-                  <li><a href="#">Instagram</a></li>
-                  <li><a href="#">Linkedin</a></li>
-                </ul>
-            </div>
-          <div class="col-md-3 footer-ns animated fadeInRight">
-              <h4>Newsletter</h4>
-                <p>A rover wearing a fuzzy suit doesn’t alarm the real penguins</p>
-                <p>
-                    <div class="input-group">
-                      <input type="text" class="form-control" placeholder="Search for.">
-                      <span class="input-group-btn">
-                        <button class="btn btn-default" type="button">search<span class="glyphicon glyphicon-envelope"></span></button>
-                      </span>
-                    </div><!-- /input-group -->
-                 </p>
-            </div>
-        </div>
-    </footer>
-    <section style="text-align:center; margin:10px auto;"><p>Designed by <a href="http://enfoplus.net">Rj. Babul</a></p></section>
+     <div class="row" style="background-color:gray;  height: 100px; width: cover; font-weight: bold;  margin: auto;  text-align: center;color: white;" >
+    
+    <div class="col-2"><img src="{{asset('image/user/logo.jpg')}}" class="img-profile rounded-circle" height="100" width="100"> </div>
+    <div class="col-8" style="margin-top:50px; font-size: 20px;">Designed By : Babul Akter</div>
+
+    <div class="col-2">
+
+
+    </div>
   </div>
-      
       
 
       <!--End Footer -->

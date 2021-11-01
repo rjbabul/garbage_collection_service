@@ -80,12 +80,8 @@
                                         <h6 class="text-muted f-w-400"><input type="number" name="rank"> </h6>
                                     </div>
                                 </div>
-                                <ul class="social-link list-unstyled m-t-40 m-b-10">
-                                    <li><a href="#!" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="facebook" data-abc="true"><i class="mdi mdi-facebook feather icon-facebook facebook" aria-hidden="true"></i></a></li>
-                                    <li><a href="#!" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="twitter" data-abc="true"><i class="mdi mdi-twitter feather icon-twitter twitter" aria-hidden="true"></i></a></li>
-                                    <li><a href="#!" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="instagram" data-abc="true"><i class="mdi mdi-instagram feather icon-instagram instagram" aria-hidden="true"></i></a></li>
-                                </ul>
-                                <input type="submit" name = "Add Customer" value="Add Customer" class="btn btn-success" style="margin-left:320px; margin-bottom: 30px; ">
+                               
+                                <input type="submit" name = "Add Driver" value="Add Driver" class="btn btn-success" style="margin-left:320px; margin-bottom: 30px; ">
                             </div> 
                           </form>
                         </div>
