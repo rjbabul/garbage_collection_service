@@ -15,7 +15,7 @@
 <div class="  log " > 
  <h4 style ="color: gray;">SuperAdmin Login</h4>
  <hr>
-  <form action="#" method="POST"  >
+  <form action="{{Route('SuperAdminLogin')}}" method="POST"  >
 
         @if(Session::get('fail'))
            <div class="alert alert-danger">

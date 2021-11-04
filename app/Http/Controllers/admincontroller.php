@@ -6,8 +6,11 @@ use App\Models\admin;
 use Illuminate\Http\Request;
 use App\Models\feedback;
 use App\Models\customer;
+use App\Models\CardRecharge;
+use App\Models\monthPayment;
 use App\Models\customer_request;
 use App\Models\driver;
+use App\Models\payment;
 use App\Models\map;
 use Illuminate\Support\Facades\Hash;
 
@@ -81,6 +84,18 @@ class admincontroller extends Controller
             return back()->with('fail','somthing is wrong');
         }
 
+    }
+    public function remove_drivers( Request $request){
+       $data= driver::where('email', '=', $request->email)->first();
+
+       $delete= $data->delete();
+        if($delete){
+              return back()->with('success','successfully Removed!!');
+        }
+        else{
+            return back()->with('fail','somthing is wrong');
+        }
+        
     }
 
     public function update_address(Request $request){
@@ -183,7 +198,10 @@ class admincontroller extends Controller
 
      public function desboard(){
        $data= ['loggedUser' =>admin::where('id', '=',session('loggedUser'))->first()];
-      return view('admin.desboard',$data);
+       $payment = monthPayment::where('id','=','1')->first();
+       $customerRequest= customer_request::orderBy('id')->get();
+       $recharge= CardRecharge::orderBy('id')->get();
+      return view('admin.desboard',$data)->with(compact([ 'payment' ,'customerRequest' ,'recharge'  ]));
        
      }
 
@@ -305,5 +323,12 @@ class admincontroller extends Controller
       // return view('category.index', compact(['categories', 'products']));
     return view('admin.garbage_status', $data)->with(compact(['data','location','marker']));
        
+    }
+
+    public function checkpayment(){
+            $data= ['loggedUser' =>admin::where('id', '=',session('loggedUser'))->first()];
+            $dt=   payment::orderBy('id')->get();
+
+       return view('admin.payment',$data)->with('dt',$dt);
     }
 }

@@ -19,7 +19,7 @@
  
      FeedBack:    {{$data->feedback}}  
      Explain: {{$data->discrive}}   
-     <a  href=" {{route('feedbacklike',$data->id)}}" class="btn btn-success">like {{$data->like}}</a> 
+    
 
 </pre>
 </div>

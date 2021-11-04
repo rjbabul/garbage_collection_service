@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use App\Models\payment;
 use App\Models\customer;
 use App\Models\card;
+use App\Models\monthPayment;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Http\Request;
 
@@ -27,6 +28,17 @@ class paymentController extends Controller
 
             $cards->save();
          	$payment = new payment;
+
+            $tk =  monthPayment::where('id','=','1')->first();
+           
+            $td=$request->months;
+            
+            
+
+
+            $tk->$td= $tk->$td+ $request->amount;
+
+            $tk->save();
              
             $save = $cards->save();
 

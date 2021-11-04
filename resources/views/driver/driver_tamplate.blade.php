@@ -57,7 +57,7 @@
              
             <li class=" "><a href=" {{Route('driver_update_profile')}} ">Update Profile</a></li>
             <li class=" "><a href=" {{Route('drivercollect_waste')}} ">Collect waste</a></li>
-            <li class=" "><a href="{{Route('viewroute') }} ">View Route</a></li>
+            <!-- <li class=" "><a href="{{Route('viewroute') }} ">View Route</a></li> -->
             <li class=" "><a href="{{Route('driver_password_change') }} ">Change Password</a></li>
 
             
@@ -119,7 +119,7 @@
   <div class="row" style="background-color:gray;  height: 100px; width: cover; font-weight: bold;  margin: auto;  text-align: center;color: white;" >
     
     <div class="col-2"><img src="{{asset('image/user/logo.jpg')}}" class="img-profile rounded-circle" height="100" width="100"> </div>
-    <div class="col-8" style="margin-top:50px; font-size: 20px;">Designed By : Babul Akter</div>
+    <div class="col-8" style="margin-top:35px; font-size: 20px;">Designed By : Babul Akter</div>
 
     <div class="col-2">
 

@@ -46,90 +46,57 @@
 
 <div class="col-2" style="background-color: #4e73df; padding-top: 20px;">
      <div align=" "   >
-       <a class=" " href="{{route('admin_profile')}}" style="text-decoration: none; color: white;   font-size: 16px;">Profile</a>
+       <a class=" " href="{{route('SuperAdmin_profile')}}" style="text-decoration: none; color: white;   font-size: 16px;">Profile</a>
      </div>
       
 <hr>
  <div align=" "   >
 
-       <a href="\desboard" style="text-decoration: none; color: white;  font-size: 16px;"> <i class="fa fa-home" style=" color:#ffffff;"></i> Deshboard</a>
+       <a href="\SuperAdmin_desboard" style="text-decoration: none; color: white;  font-size: 16px;"> <i class="fa fa-home" style=" color:#ffffff;"></i> Deshboard</a>
      </div>
 <hr>
 
 <div align=" "   >
 
-       <a href="\admin_feedback" style="text-decoration: none; color: white;  ; font-size: 16px;"> <i class="fa fa-star" style=" color:#ffffff;"></i> Feedback</a>
+       <a href="\Super_admin_feedback" style="text-decoration: none; color: white;  ; font-size: 16px;"> <i class="fa fa-star" style=" color:#ffffff;"></i> Feedback</a>
      </div>
 <hr>
 
  <div align=" "   >
 
-       <a href="\customer_complain" style="text-decoration: none; color: white;   font-size: 16px;"> <i class="fa fa-comments" style=" color:#ffffff;"></i> Complain</a>
+       <a href="\super_customer_complain" style="text-decoration: none; color: white;   font-size: 16px;"> <i class="fa fa-comments" style=" color:#ffffff;"></i> Complain</a>
      </div>
 <hr> 
- <div align=" "   >
+  
+ 
+    <div align=" "   >
 
-       <a href="\request_pendin" style="text-decoration: none; color: white;   font-size: 16px;"> <i class="fa fa-user" style=" color:#ffffff;"></i>Customer Request</a>
+       <a href="\Super_customer_list" style="text-decoration: none; color: white;   font-size: 16px;"> <i class="fa fa-user" style=" color:#ffffff;"></i> Customer List  </a>
      </div>
 <hr>
- 
-     <div class="dropdown dropright " >
-    <button type="button" class="btn  dropdown-toggle" data-toggle="dropdown" style="background-color:#4e73df;  color:white; margin-left: -10px;  ">
-     <i class="fa fa-money" style=" color:#ffffff;"> Card</i> 
-    </button>
-    <div class="dropdown-menu" style="font-size: 12px;">
-      <a class="dropdown-item" href="\card_rechage" style="text-decoration: none; "></i> Card Recharg</a>
-      <a class="dropdown-item" href="\card_request"> Card Request</a>
-    </div>
-  </div>
-<hr>
 
- 
- 
-<div class="dropdown dropright " >
-    <button type="button" class="btn  dropdown-toggle" data-toggle="dropdown" style="background-color:#4e73df;  color:white; margin-left: -10px;  ">
-     <i class="fa fa-user" style=" color:#ffffff;"></i> Customer
-    </button>
-    <div class="dropdown-menu" style="font-size: 12px;">
-      <a class="dropdown-item" href="\customers_list" style="text-decoration: none; "></i> Customers List</a>
-      <a class="dropdown-item" href="\remove_customer">Remove Customer</a>
-      <a class="dropdown-item" href="\add_customer">Add Customer</a>
-    </div>
-  </div>
+<div align=" "   >
+
+       <a href="\Super_driver_list" style="text-decoration: none; color: white;   font-size: 16px;"> <i class="fa fa-comments" style=" color:#ffffff;"></i> Driver List</a>
+     </div>
+<hr> 
+
   
-      
-    
-<hr>
   
        
      <div class="dropdown dropright " >
     <button type="button" class="btn  dropdown-toggle" data-toggle="dropdown" style="background-color:#4e73df;  color:white; margin-left: -10px;  ">
-     <i class="fa fa-user" style=" color:#ffffff;"></i> Driver
+     <i class="fa fa-user" style=" color:#ffffff;"></i> Admin
     </button>
     <div class="dropdown-menu" style="font-size: 12px;">
-      <a class="dropdown-item" href="\driver_list" style="text-decoration: none; color: black;    ">  Driver List</a>
-      <a class="dropdown-item" href="/remove_driver">Remove Driver</a>
-      <a class="dropdown-item" href="/add_driver">Add Driver</a>
+      <a class="dropdown-item" href="\adminList" style="text-decoration: none; color: black;    ">  Admin List</a>
+      <a class="dropdown-item" href="/remove_admin">Remove Admin</a>
+      <a class="dropdown-item" href="/add_admin">Add Admin</a>
     </div>
   </div>
 <hr>
  
- <div class="dropdown dropright " >
-    <button type="button" class="btn  dropdown-toggle" data-toggle="dropdown" style="background-color:#4e73df;  color:white; margin-left: -10px;  ">
-     <i class="fa fa-user" style=" color:#ffffff;"></i> Garbage
-    </button>
-    <div class="dropdown-menu" style="font-size: 12px;">
-      
-      <a class="dropdown-item" href="\garbage_status">Check collection</a>
-      
-    </div>
-  </div>
-  <hr>
-  <div align=" "   >
-
-       <a href="\checkpayment" style="text-decoration: none; color: white;  ; font-size: 16px;"> <i class="fa fa-star" style=" color:#ffffff;"></i> Check payment</a>
-     </div>
-<hr>
+ 
 
 
 </div>
@@ -178,9 +145,9 @@
     {{$loggedUser['name']}} <img src="{{$loggedUser['image']}}" class="img-profile rounded-circle" height="30" width="30"> 
     </button>
     <div class="dropdown-menu">
-      <a class="dropdown-item" href="\admin_profile">Profile</a>
-      <a class="dropdown-item" href="\update_profile">Update Profile</a>
-      <a class="dropdown-item" href="\password_reset">Change Password</a>
+      <a class="dropdown-item" href="\SuperAdmin_profile">Profile</a>
+      <a class="dropdown-item" href="\superadmin_update_profile">Update Profile</a>
+      <a class="dropdown-item" href="\superadmin_password_reset">Change Password</a>
       <hr>
       <a  href="\logout" class="dropdown-item"  > <i class="fa fa-sign-out" style=" color:gray;"></i> LogOut</a>
     </div>

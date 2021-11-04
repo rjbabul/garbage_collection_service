@@ -13,9 +13,17 @@
    $count=1;
    ?>
     <table  id="customers"  style="color:black;">
-     
-     <thead   >
+       @if(Session::get('success'))
+           <div class="alert alert-warning">
+            {{ Session::get('success')}}
+        @endif
 
+         @if(Session::get('fail'))
+           <div class="alert alert-danger">
+            {{ Session::get('fail')}}
+        @endif
+      <thead   >
+       
       <tr style="  height: 60px;  " >
           <th  rowspan="2">Serial No</th>
          <th  colspan="3" style="text-align: center;">General Information</th>
@@ -47,7 +55,17 @@
             <td> {{$request->rank}}</td>
             
 
-            <td> <a href="#" style="text-decoration: none; margin-left: 10px; " class="btn btn-warning">Delete</a> </td>
+            <td>  
+             <form action =" {{Route('remove_drivers')}} " method="post">
+              @csrf
+
+              <input type="hidden" name="email" value="{{ $request->email }}" >
+
+              <input type="submit" name="delete" value="Remove" class="btn btn-warning">
+
+             </form>
+
+            </td>
          </tr>
        @endforeach
      </tbody>

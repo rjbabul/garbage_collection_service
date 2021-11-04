@@ -1,8 +1,6 @@
-@extends('admin.admintemplate')
+ @extends('superadmin.SuperAdminTemplate')
 
 @section('content')
- 
-<!--Navigation bar Start--> 
 
 <h1>Dashboard</h1>
   
@@ -10,43 +8,26 @@
    $total=$payment->January + $payment->February+$payment->March + $payment->April+$payment->May + $payment->June+$payment->July + $payment->August+$payment->September + $payment->October+$payment->November + $payment->December;
     $var=0;
     $r=0;
-
   ?>
- 
-  <input type="hidden" name="@foreach($customerRequest as $customerRequest)
-        {{$var++}}
-  @endforeach
 
-       @foreach($recharge as $recharge)
-       {{ $r++}};
-       @endforeach " value="a">
+   
  
  <div class="card-deck  "   >
-  <div class="card bg-light" >
+  <div class="card bg-light">
     <div class="card-body text-center">
-      <p class="card-text" style="  color: #4e73df; text-align: left; text-align: center; "><b>EARNINGS (MONTHLY)</b></p>
-       <p class="card-text" style="  color: gray; text-align: left; text-align: center;"><b>{{$payment->November}}</b></p>
+      <p class="card-text" style="  color: #4e73df; text-align: left; text-align: center;"><b>EARNINGS (MONTHLY)</b></p>
+       <p class="card-text" style="  color: gray; text-align: left;text-align: center; "><b>{{$payment->November}}</b></p>
     </div>
   </div>
   <div class="card bg-light">
     <div class="card-body text-center">
-      <p class="card-text" style="  color: #1cc88a; text-align: left; text-align: center;"><b>EARNINGS (ENNUAL)</b></p>
+      <p class="card-text" style="  color: #1cc88a; text-align: left;text-align: center; "><b>EARNINGS (ENNUAL)</b></p>
 
       <p class="card-text" style="  color: gray; text-align: left; text-align: center;"><b>{{$total}}</b></p>
     </div>
   </div>
-  <div class="card bg-light">
-    <div class="card-body text-center">
-      <p class="card-text" style="  color: #36b9cc; text-align: left; text-align: center;"><b>  Request Pending</b></p>
-        <p class="card-text" style="  color: gray; text-align: left; text-align: center;"><b> {{$var}}</b></p>
-    </div>
-  </div>
-  <div class="card bg-light">
-    <div class="card-body text-center">
-      <p class="card-text" style="  color: #f6c28f; text-align: left; text-align: center;"><b>Recharge Pending</b></p>
-       <p class="card-text" style="  color: gray; text-align: left; text-align: center;"><b> {{$r}} </b></p>
-    </div>
-  </div>
+  
+   
 </div>
 
 <div class="row " style="margin-top: 30px;">
@@ -137,6 +118,7 @@ function drawChart() {
 </div>
  
 </script>
+
 
 
 

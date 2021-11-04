@@ -8,20 +8,8 @@
      <div class="row" style="margin-left: 20px;">
       <div class="col-4 d" >
 
-        <h4>Read it Before Sing up</h4>
-         <hr class="hri">
-         <h5>Do you know about <a href="/service" class="afont"> our service </a> ?</h5> 
-         <h5>Are you willing to take our services?</h5>
-         <br><br>
-        <ul style="list-style-type:square;">
-
-            <li><b>Enter  your valided gmail </b></li>
-            <li><b>Please Enter your active phone number. </b></li>
-
-             <li><b>After registration ,  login Your account and update your profile. then we communicate with you. </b></li>
-            
-          </ul>
-
+       
+ 
       </div>
 
   

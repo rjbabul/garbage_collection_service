@@ -57,6 +57,7 @@ class Kernel extends HttpKernel
         'AuthCustomer' => \App\Http\Middleware\AuthCustomer::class,
         'AuthAdmin' => \App\Http\Middleware\authAdmin::class,
         'AuthDriver' => \App\Http\Middleware\AuthDriver::class,
+        'AuthSuperAdmin' => \App\Http\Middleware\AuthSuperAdmin::class,
         'geust' => \App\Http\Middleware\geust::class,
         'auth.basic' => \Illuminate\Auth\Middleware\AuthenticateWithBasicAuth::class,
         'cache.headers' => \Illuminate\Http\Middleware\SetCacheHeaders::class,

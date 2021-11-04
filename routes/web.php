@@ -104,6 +104,8 @@ Route::post('/updateDriverProfile','DriverController@updateDriverProfile')->name
 
 Route::post('/reset','mapController@reset')->name('reset');
 
+Route::post('/remove_drivers','admincontroller@remove_drivers')->name('remove_drivers');
+
 
 /// Driver 
 
@@ -118,6 +120,24 @@ Route::post('/collect','mapController@collect')->name('collect');
 
 ///                     ----------------X -------------
  
+
+ ///  -------------SUPER ADMIN --------------
+ 
+ Route::post('/SuperAdminLogin','SuperAdminController@SuperAdminLogin')->name('SuperAdminLogin');
+ 
+ Route::post('/SuperAdmin_userProfile','SuperAdminController@SuperAdmin_userProfile')->name('SuperAdmin_userProfile');
+
+ Route::post('/SuperAdmin_driverprofile','SuperAdminController@SuperAdmin_driverprofile')->name('SuperAdmin_driverprofile');
+
+ Route::post('/user_profile_admin','SuperAdminController@user_profile_admin')->name('user_profile_admin');
+
+ Route::post('/admin_delete','SuperAdminController@admin_delete')->name('admin_delete');
+ Route::post('/AddeAdmin','SuperAdminController@AddeAdmin')->name('AddeAdmin');
+
+  Route::post('/superadmin_password_update','SuperAdminController@superadmin_password_update')->name('superadmin_password_update');
+
+
+///  --------------------X-------------
 
 
 /// -----------GET Route ----------
@@ -211,7 +231,7 @@ Route::get('/update_profile','admincontroller@update_profile');
 Route::get('/desboard','admincontroller@desboard');
 
  
- Route::get('/customer_complain','complainController@user_complain');
+Route::get('/customer_complain','complainController@user_complain');
  
 Route::get('/admin_feedback','feedbackController@admin_feedback');
 Route::get('/admin_notification','admincontroller@admin_notification');
@@ -245,7 +265,11 @@ Route::get('/user_profile_driver','UserController@user_profile_driver')->name('u
  Route::get('/reset_collection','admincontroller@reset_collection');
  Route::get('/garbage_status','admincontroller@garbage_status');
 
+ Route::get('/checkpayment','admincontroller@checkpayment');
+
 });
+
+//checkpayment
 
 
 
@@ -264,4 +288,32 @@ Route::get('/drivercollect_waste','DriverController@drivercollect_waste')->name(
 Route::get('/viewroute','DriverController@viewroute')->name('viewroute');
 
  
-}); 
+});
+
+
+Route::middleware(['AuthSuperAdmin'])->group(function(){
+ 
+
+ Route::get('/SuperAdmin_profile','SuperAdminController@SuperAdmin_profile')->name('SuperAdmin_profile');
+
+ Route::get('/Super_customer_list','SuperAdminController@Super_customer_list')->name('Super_customer_list');
+Route::get('/adminList','SuperAdminController@adminList')->name('adminList');
+
+Route::get('/remove_admin','SuperAdminController@remove_admin')->name('remove_admin');
+
+Route::get('/add_admin','SuperAdminController@add_admin')->name('add_admin');
+
+Route::get('/Super_driver_list','SuperAdminController@Super_driver_list')->name('Super_driver_list');
+Route::get('/super_customer_complain','SuperAdminController@super_customer_complain')->name('super_customer_complain');
+
+Route::get('/Super_admin_feedback','SuperAdminController@Super_admin_feedback')->name('Super_admin_feedback');
+
+Route::get('/SuperAdmin_desboard','SuperAdminController@SuperAdmin_desboard')->name('SuperAdmin_desboard');
+
+Route::get('/superadmin_garbage_status','SuperAdminController@superadmin_garbage_status')->name('superadmin_garbage_status');
+
+Route::get('/superadmin_update_profile','SuperAdminController@superadmin_update_profile')->name('superadmin_update_profile');
+
+Route::get('/superadmin_password_reset','SuperAdminController@superadmin_password_reset')->name('superadmin_password_reset');
+
+});

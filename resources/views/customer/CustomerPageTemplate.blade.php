@@ -52,7 +52,7 @@
         <nav class="main_nav">
           <ul class="d-flex flex-row align-items-start justify-content-start">
        
-            <li class=" "><a href="/location">Bus location</a></li>
+             
             <li class=" "><a href="/complain">Complain</a></li>
             <li class=" "><a href="/payment">Payment</a></li>
              

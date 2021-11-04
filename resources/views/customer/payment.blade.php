@@ -34,7 +34,7 @@
       <option>May</option>
       <option>June</option>
       <option>July</option>
-      <option>Augost</option>
+      <option>August</option>
       <option>September</option>
       <option>October</option>
       <option>November</option>

@@ -1,8 +1,8 @@
-@extends('admin.admintemplate')
+ @extends('superadmin.SuperAdminTemplate')
 
 @section('content')
- 
-<!--Navigation bar Start-->
+
+
 <div class="container">
 <h1 style="color:#b96c65; font-weight: bold;"> Customer's FeedBack</h1>
 <hr> 
@@ -25,7 +25,6 @@
 @endforeach
      </div>
 </div>
-
 
 
 @endsection
