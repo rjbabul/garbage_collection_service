@@ -2,7 +2,7 @@
 
 @section('content')
 
- <h1 style="color:#646f64;">Admin's Profile</h1> 
+ <h1 style="color:#646f64;">SuperAdmin's Profile</h1> 
 <hr>
  <div class="page-content page-container"  style="witdh:1000px; font-weight: bold; margin-left: -50px; margin-top: -30px;">
     <div class="padding">

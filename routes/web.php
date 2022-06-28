@@ -136,7 +136,7 @@ Route::post('/collect','mapController@collect')->name('collect');
 
   Route::post('/superadmin_password_update','SuperAdminController@superadmin_password_update')->name('superadmin_password_update');
 
-
+   Route::get('/super_user_profile','UserController@super_user_profile')->name('super_user_profile');
 ///  --------------------X-------------
 
 

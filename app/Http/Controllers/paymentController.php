@@ -22,6 +22,9 @@ class paymentController extends Controller
          else if( $cards->balance< $request->amount){
          	return back()->with('fail','Insufficient Balance');
          }
+         else if( $cards->balance<0){
+            return back()->with('fail','wrong input  Balance');
+         }
          else{
             
             $cards->balance = $cards->balance - $request->amount;

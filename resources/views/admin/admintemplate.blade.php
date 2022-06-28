@@ -130,6 +130,12 @@
        <a href="\checkpayment" style="text-decoration: none; color: white;  ; font-size: 16px;"> <i class="fa fa-star" style=" color:#ffffff;"></i> Check payment</a>
      </div>
 <hr>
+<div align=" "   >
+
+       <a href="\logout" style="text-decoration: none; color: white;  ; font-size: 16px;"> <i class="fa fa-star" style=" color:#ffffff;"></i> LogOut</a>
+ 
+     </div>
+<hr>
 
 
 </div>

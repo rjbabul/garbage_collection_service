@@ -47,7 +47,7 @@
      <!-- header  -->
      <header class="header">
     <div class="header_content d-flex flex-row align-items-center justify-content-start">
-      <div class="logo"><a href="/">WMS</a></div>
+      <div class="logo"><a href="/">OGCS</a></div>
       <div class="ml-auto d-flex flex-row align-items-center justify-content-start">
         <nav class="main_nav">
           <ul class="d-flex flex-row align-items-start justify-content-start">

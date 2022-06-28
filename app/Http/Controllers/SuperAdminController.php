@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\admin;
+use App\Models\complain;
 use App\Models\map;
 use App\Models\superadmin;
 use App\Models\feedback;
@@ -13,7 +14,7 @@ use App\Models\monthPayment;
 use App\Models\customer_request;
 use App\Models\driver;
 
-use App\Models\complain;
+ 
 use Illuminate\Support\Facades\Hash;
 
 class SuperAdminController extends Controller
@@ -145,7 +146,8 @@ class SuperAdminController extends Controller
 
      public function super_customer_complain(){
      	$data= ['loggedUser' =>superadmin::where('id', '=',session('loggedUser'))->first()];
-        $fdback =  feedback::orderBy('id')->get();
+        $fdback =  complain::orderBy('id')->get();
+       
      	return view('superadmin.super_customer_complain',$data)->with('fdback', $fdback);
      }
 
@@ -155,7 +157,6 @@ class SuperAdminController extends Controller
      	return view('superadmin.Super_admin_feedback',$data)->with('fdback', $fdback);
      }
  
-
       public function SuperAdmin_desboard(){
      	$data= ['loggedUser' =>admin::where('id', '=',session('loggedUser'))->first()];
        $payment = monthPayment::where('id','=','1')->first();

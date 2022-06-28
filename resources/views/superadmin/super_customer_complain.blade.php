@@ -15,7 +15,7 @@
      
      Type:    {{$fdback->type}}  
      Complain: {{$fdback->complain}}   
-     <a  href=" {{route('user_profile',$fdback->email)}}"  class="btn btn-success">Customer Profile </a> 
+     <a  href=" {{route('super_user_profile',$fdback->email)}}"  class="btn btn-success">Customer Profile </a> 
 
 </pre>
 </div>
