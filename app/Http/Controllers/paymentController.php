@@ -13,6 +13,7 @@ class paymentController extends Controller
     public function payment(Request $request){
     	$data=  customer::where('id', '=',session('loggedUser'))->first() ;
         $cards= card::where('card_no' , '=',  $request->card_no  )->first();
+        $least =1;
          if(!$cards){
             return back()->with('fail','Card Number is wrong');
          }
@@ -22,10 +23,10 @@ class paymentController extends Controller
          else if( $cards->balance< $request->amount){
          	return back()->with('fail','Insufficient Balance');
          }
-         else if( $cards->balance<0){
-            return back()->with('fail','wrong input  Balance');
+         else if(  $request->amount < $least){
+            return back()->with('fail','  input  Balance must be positive');
          }
-         else{
+         else {
             
             $cards->balance = $cards->balance - $request->amount;
 
